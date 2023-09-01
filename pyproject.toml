@@ -19,7 +19,7 @@ dynamic = ["version"]
 Homepage = "https://github.com/MBI-Div-B/pytango-rpimonitor"
 
 [project.scripts]
-RPiMontitor = "tangods_rpimonitor:main"
+RPiMonitor = "tangods_rpimonitor:main"
 
 [tool.setuptools.dynamic]
 version = {file = "VERSION"}
