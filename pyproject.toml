@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tangods_rpimonitor"
+description = "Raspberry PI with TangoDS integrated tool"
+keywords = ["tango device", "tango", "pytango", "rpi", "raspberry"]
+readme = "README.md"
+authors = [
+    {name = "Leonid Lunin", email = "lunin.leonid@gmail.com"},
+]
+requires-python = ">=3.10"
+dependencies = ['psutil >= 5.9.5']
+license = {text = "MIT"}
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/MBI-Div-B/pytango-rpimonitor"
+
+[project.scripts]
+RPiMontitor = "tangods_rpimonitor:main"
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
+
+[tool.setuptools.packages.find]
+
+[tool.setuptools.package-data]
+tangods_rpimonitor = ["VERSION"]
