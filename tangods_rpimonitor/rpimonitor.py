@@ -1,6 +1,6 @@
 from tango import AttrWriteType, DispLevel, DevState
 from tango.server import Device, attribute, command, device_property
-import psutil, time, datetime
+import psutil, time, datetime, subprocess
 
 
 class RPiMonitor(Device):
@@ -98,6 +98,10 @@ class RPiMonitor(Device):
         uptime_sec = time.time() - psutil.boot_time()
         uptime_min = round(uptime_sec / 60)
         return uptime_min
+
+    @command(dtype_in=None, dtype_out=None)
+    def reboot_device(self):
+        subprocess.run(["sudo", "shutdown", "-r", "now"])
 
     def init_device(self):
         Device.init_device(self)
